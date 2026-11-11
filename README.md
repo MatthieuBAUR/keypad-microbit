@@ -4,7 +4,7 @@ ACCES CONTROL KEYPAD FOR MICRO:BIT
 Send a number though bluetooth (UART) to the micro:bit card.
 
 The following code must be loaded in the card:
-
+(or found in this repository: receptionV1.hex)
 Python:
 
 ```
