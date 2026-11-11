@@ -1,5 +1,6 @@
 # keypad-microbit
 ACCES CONTROL KEYPAD FOR MICRO:BIT
+(Doesn't work with iphone yet)
 
 Send a number though bluetooth (UART) to the micro:bit card.
 
