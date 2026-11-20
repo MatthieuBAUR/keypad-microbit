@@ -13,9 +13,7 @@
    STYLE GENERAL
 ===================================== */
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -27,9 +25,7 @@ body {
     align-items: center;
     font-family: Calibri, Arial, sans-serif;
     color: #dff8ff;
-
-    background:
-        radial-gradient(ellipse at top, #15364d, #07131f 65%, #02070d);
+    background: radial-gradient(ellipse at top, #15364d, #07131f 65%, #02070d);
 }
 
 /* =====================================
@@ -43,11 +39,9 @@ body {
     background: linear-gradient(145deg, #263c4d, #0b1722 45%, #142a3a);
     border: 2px solid #247ca9;
     border-radius: 14px;
-
-    box-shadow:
-        0 0 12px #00bfff,
-        0 0 25px rgba(0, 174, 255, 0.3),
-        inset 0 0 20px rgba(0, 140, 220, 0.12);
+    box-shadow: 0 0 12px #00bfff,
+                0 0 25px rgba(0,174,255,.3),
+                inset 0 0 20px rgba(0,140,220,.12);
 }
 
 /* =====================================
@@ -78,7 +72,90 @@ body {
 }
 
 /* =====================================
-   CONNEXION BLUETOOTH
+   SELECTEUR USB / BLUETOOTH
+===================================== */
+
+.choix-mode {
+    margin-bottom: 11px;
+    padding: 9px;
+    background: #071722;
+    border: 1px solid #174a63;
+    border-radius: 8px;
+}
+
+.mode-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8ec9e8;
+}
+
+.selecteur {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 4px;
+    background: #020b12;
+    border: 1px solid #24516a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.selecteur button {
+    position: relative;
+    z-index: 2;
+    min-height: 39px;
+    border: none;
+    background: transparent;
+    color: #7195a8;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.selecteur button.actif {
+    color: #ffffff;
+    text-shadow: 0 0 8px currentColor;
+}
+
+.selecteur button:disabled {
+    cursor: not-allowed;
+}
+
+.indicateur-mode {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    border-radius: 6px;
+    background: linear-gradient(145deg, #087c54, #06442f);
+    border: 1px solid #00ff99;
+    box-shadow: 0 0 10px rgba(0,255,140,.4);
+    transition: transform .25s;
+}
+
+.selecteur.bluetooth .indicateur-mode {
+    transform: translateX(100%);
+    background: linear-gradient(145deg, #0877a9, #103653);
+    border-color: #18baff;
+    box-shadow: 0 0 10px rgba(0,174,255,.5);
+}
+
+.mode-description {
+    text-align: center;
+    margin-top: 7px;
+    font-size: 10px;
+    color: #779eb4;
+}
+
+/* =====================================
+   CONNEXION
 ===================================== */
 
 .connexion {
@@ -123,7 +200,7 @@ body {
 }
 
 @keyframes pulsation {
-    50% { opacity: 0.45; }
+    50% { opacity: .45; }
 }
 
 .bouton-connexion {
@@ -143,12 +220,12 @@ body {
 }
 
 .bouton-connexion:disabled {
-    opacity: 0.4;
+    opacity: .4;
     cursor: not-allowed;
 }
 
 /* =====================================
-   ECRAN DU DIGICODE
+   ECRAN
 ===================================== */
 
 .ecran {
@@ -158,7 +235,8 @@ body {
     background: linear-gradient(180deg, #020a12, #061b2a);
     border: 2px solid #00c8ff;
     border-radius: 9px;
-    box-shadow: 0 0 10px #00bfff, inset 0 0 15px rgba(0, 174, 255, 0.18);
+    box-shadow: 0 0 10px #00bfff,
+                inset 0 0 15px rgba(0,174,255,.18);
 }
 
 .ecran-label {
@@ -181,7 +259,9 @@ body {
     font-size: 39px;
     font-weight: bold;
     letter-spacing: 7px;
-    text-shadow: 0 0 5px #00eaff, 0 0 15px #00bfff, 0 0 25px #0088ff;
+    text-shadow: 0 0 5px #00eaff,
+                 0 0 15px #00bfff,
+                 0 0 25px #0088ff;
     overflow-wrap: anywhere;
 }
 
@@ -200,12 +280,12 @@ body {
 }
 
 /* =====================================
-   CLAVIER NUMERIQUE
+   CLAVIER
 ===================================== */
 
 .clavier {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 7px;
     margin-bottom: 12px;
 }
@@ -218,32 +298,27 @@ body {
     font-family: "Courier New", monospace;
     font-size: 25px;
     font-weight: bold;
-
-    background: linear-gradient(145deg, #29485e, #0b1a27 65%, #122d40);
+    background: linear-gradient(145deg,#29485e,#0b1a27 65%,#122d40);
     border: 1px solid #168dc5;
-
-    box-shadow:
-        0 3px 0 #06101a,
-        0 0 7px rgba(0, 174, 255, 0.3),
-        inset 0 1px 4px rgba(130, 220, 255, 0.15);
-
+    box-shadow: 0 3px 0 #06101a,
+                0 0 7px rgba(0,174,255,.3),
+                inset 0 1px 4px rgba(130,220,255,.15);
     text-shadow: 0 0 8px #00bfff;
-    transition: all 0.12s;
+    transition: all .12s;
 }
 
 .touche:hover:not(:disabled) {
-    background: linear-gradient(145deg, #17648b, #0c2b42);
+    background: linear-gradient(145deg,#17648b,#0c2b42);
     border-color: #48dcff;
     box-shadow: 0 0 13px #00bfff;
 }
 
 .touche:active:not(:disabled) {
     transform: translateY(2px);
-    box-shadow: 0 1px 0 #06101a;
 }
 
 .touche:disabled {
-    opacity: 0.35;
+    opacity: .35;
     cursor: not-allowed;
 }
 
@@ -251,11 +326,6 @@ body {
     color: #ff7777;
     border-color: #d83b4b;
     text-shadow: 0 0 8px red;
-}
-
-.touche.action:hover:not(:disabled) {
-    background: #5c1420;
-    box-shadow: 0 0 12px #ff3030;
 }
 
 .touche.effacer {
@@ -268,16 +338,16 @@ body {
     grid-row: 3 / span 2;
     min-height: 105px;
     color: #aaffd0;
-    font-family: Calibri, Arial, sans-serif;
+    font-family: Calibri,Arial,sans-serif;
     font-size: 16px;
-    background: linear-gradient(145deg, #087c54, #063a2b);
+    background: linear-gradient(145deg,#087c54,#063a2b);
     border: 1px solid #00ff99;
     text-shadow: 0 0 10px #00ff99;
-    box-shadow: 0 0 10px rgba(0, 255, 140, 0.4);
+    box-shadow: 0 0 10px rgba(0,255,140,.4);
 }
 
 .touche.envoyer:hover:not(:disabled) {
-    background: linear-gradient(145deg, #0bbd77, #075b3e);
+    background: linear-gradient(145deg,#0bbd77,#075b3e);
     box-shadow: 0 0 18px #00ff99;
 }
 
@@ -299,31 +369,26 @@ body {
     font-size: 17px;
     font-weight: bold;
     letter-spacing: 1px;
-    background: linear-gradient(145deg, #a91e2c, #4a0911);
+    background: linear-gradient(145deg,#a91e2c,#4a0911);
     border: 2px solid #ff4350;
     border-radius: 8px;
     cursor: pointer;
     text-shadow: 0 0 10px #ffb0b0;
-    box-shadow: 0 0 10px rgba(255, 30, 50, 0.4);
-    transition: 0.2s;
+    box-shadow: 0 0 10px rgba(255,30,50,.4);
 }
 
 .fermer-porte:hover:not(:disabled) {
-    background: linear-gradient(145deg, #e52d3c, #790e1a);
+    background: linear-gradient(145deg,#e52d3c,#790e1a);
     box-shadow: 0 0 20px #ff273d;
 }
 
-.fermer-porte:active:not(:disabled) {
-    transform: scale(0.98);
-}
-
 .fermer-porte:disabled {
-    opacity: 0.35;
+    opacity: .35;
     cursor: not-allowed;
 }
 
 /* =====================================
-   TELECHARGEMENT DU CODE MICRO:BIT
+   TELECHARGEMENT
 ===================================== */
 
 .telecharger-code {
@@ -337,22 +402,14 @@ body {
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
-    background: linear-gradient(145deg, #16445e, #071c2d);
+    background: linear-gradient(145deg,#16445e,#071c2d);
     border: 1px solid #18baff;
     border-radius: 7px;
-    box-shadow: 0 0 8px rgba(0, 174, 255, 0.25);
-    transition: 0.2s;
-}
-
-.telecharger-code:hover {
-    color: white;
-    background: linear-gradient(145deg, #0877a9, #0b3048);
-    border-color: #48dcff;
-    box-shadow: 0 0 15px #00bfff;
+    box-shadow: 0 0 8px rgba(0,174,255,.25);
 }
 
 /* =====================================
-   MESSAGE ET PIED DE PAGE
+   MESSAGES
 ===================================== */
 
 .message {
@@ -391,65 +448,43 @@ body {
    PETITS ECRANS
 ===================================== */
 
-@media (max-width: 360px) {
+@media (max-width:360px) {
 
-    .panneau {
-        padding: 9px;
-    }
+    .panneau { padding: 9px; }
 
-    .connexion {
-        flex-wrap: wrap;
-    }
+    .connexion { flex-wrap: wrap; }
 
-    .etat {
-        flex-basis: 100%;
-    }
+    .etat { flex-basis: 100%; }
 
     .touche {
         min-height: 44px;
         font-size: 22px;
     }
 
-    .touche.envoyer {
-        min-height: 95px;
-    }
+    .touche.envoyer { min-height: 95px; }
 
-    #affichageCode {
-        font-size: 32px;
-    }
+    #affichageCode { font-size: 32px; }
 
-    .fermer-porte {
-        font-size: 15px;
-    }
+    .fermer-porte { font-size: 15px; }
 }
 
-/* =====================================
-   ECRANS BAS
-===================================== */
-
-@media (max-height: 700px) {
+@media (max-height:700px) {
 
     body {
         padding: 4px;
         align-items: flex-start;
     }
 
-    .panneau {
-        padding: 8px;
-    }
+    .panneau { padding: 8px; }
 
     .entete {
         padding: 2px 0 6px;
         margin-bottom: 7px;
     }
 
-    .entete h1 {
-        font-size: 22px;
-    }
+    .entete h1 { font-size: 22px; }
 
-    .connexion {
-        margin-bottom: 7px;
-    }
+    .connexion { margin-bottom: 7px; }
 
     .ecran {
         padding: 6px;
@@ -466,26 +501,18 @@ body {
         margin-bottom: 8px;
     }
 
-    .touche {
-        min-height: 42px;
-    }
+    .touche { min-height: 42px; }
 
-    .touche.envoyer {
-        min-height: 89px;
-    }
+    .touche.envoyer { min-height: 89px; }
 
-    .fermer-porte {
-        min-height: 46px;
-    }
+    .fermer-porte { min-height: 46px; }
 
     .telecharger-code {
         margin-top: 6px;
         padding: 7px;
     }
 
-    .message {
-        margin-top: 5px;
-    }
+    .message { margin-top: 5px; }
 
     .pied {
         margin-top: 5px;
@@ -500,46 +527,56 @@ body {
 
 <div class="panneau">
 
-    <!-- TITRE -->
-
     <div class="entete">
-
         <h1>Commande micro:bit</h1>
-
         <div class="sous-titre">
-            ACCES CONTROL SYSTEM FOR MICRO:BIT
+            ACCESS CONTROL SYSTEM FOR MICRO:BIT
+        </div>
+    </div>
+
+
+    <!-- SELECTEUR USB / BLUETOOTH -->
+
+    <div class="choix-mode">
+
+        <span class="mode-label">MODE DE COMMUNICATION</span>
+
+        <div class="selecteur" id="selecteurMode">
+
+            <div class="indicateur-mode"></div>
+
+            <button id="modeUSB" class="actif">
+                USB
+            </button>
+
+            <button id="modeBluetooth">
+                BLUETOOTH
+            </button>
+
+        </div>
+
+        <div class="mode-description" id="descriptionMode">
+            Connexion filaire par câble USB
         </div>
 
     </div>
 
 
-    <!-- CONNEXION BLUETOOTH -->
+    <!-- CONNEXION -->
 
     <div class="connexion">
 
         <div class="etat">
-
             <span id="voyant" class="voyant"></span>
-
-            <span id="texteConnexion">
-                Non connect&eacute
-            </span>
-
+            <span id="texteConnexion">Non connectee</span>
         </div>
 
-        <button
-            id="connecter"
-            class="bouton-connexion"
-        >
+        <button id="connecter" class="bouton-connexion">
             Connecter
         </button>
 
-        <button
-            id="deconnecter"
-            class="bouton-connexion"
-            disabled
-        >
-            D&eacuteconnecter
+        <button id="deconnecter" class="bouton-connexion" disabled>
+            Deconnecter
         </button>
 
     </div>
@@ -550,7 +587,7 @@ body {
     <div class="ecran">
 
         <div class="ecran-label">
-            Code &agrave envoyer
+            Code a envoyer
         </div>
 
         <div id="affichageCode" class="vide">
@@ -571,81 +608,49 @@ body {
         <button class="touche" data-chiffre="1" disabled>1</button>
         <button class="touche" data-chiffre="2" disabled>2</button>
         <button class="touche" data-chiffre="3" disabled>3</button>
-
-        <button
-            class="touche action"
-            id="retour"
-            disabled
-            title="Supprimer le dernier chiffre"
-        >
-            ?
-        </button>
-
+        <button class="touche action" id="retour" disabled>←</button>
 
         <button class="touche" data-chiffre="4" disabled>4</button>
         <button class="touche" data-chiffre="5" disabled>5</button>
         <button class="touche" data-chiffre="6" disabled>6</button>
-
-        <button
-            class="touche effacer"
-            id="effacer"
-            disabled
-            title="Effacer tout le code"
-        >
-            C
-        </button>
-
+        <button class="touche effacer" id="effacer" disabled>C</button>
 
         <button class="touche" data-chiffre="7" disabled>7</button>
         <button class="touche" data-chiffre="8" disabled>8</button>
         <button class="touche" data-chiffre="9" disabled>9</button>
 
-        <button
-            class="touche envoyer"
-            id="envoyer"
-            disabled
-        >
-            <span class="icone-envoi">?</span>
+        <button class="touche envoyer" id="envoyer" disabled>
+            <span class="icone-envoi">➤</span>
             ENVOYER
         </button>
-
 
         <button class="touche" data-chiffre="0" disabled>0</button>
 
     </div>
 
 
-    <!-- FERMETURE DE LA PORTE -->
+    <!-- FERMER LA PORTE -->
 
-    <button
-        id="fermerPorte"
-        class="fermer-porte"
-        disabled
-    >
+    <button id="fermerPorte" class="fermer-porte" disabled>
         FERMER LA PORTE
     </button>
 
 
-    <!-- TELECHARGEMENT DU PROGRAMME MICRO:BIT -->
+    <!-- TELECHARGEMENT Lien vers la page à modifier -->
 
-    <a
-        class="telecharger-code"
-        href="https://drive.google.com/uc?export=download&id=1sRKAHCDoUSd5fiGIwbgIBotS-tTrCqxg"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        T&eacutel&eacutecharger le code MICRO:BIT
+    <a class="telecharger-code"
+       href="https://drive.google.com/uc?export=download&id=1sRKAHCDoUSd5fiGIwbgIBotS-tTrCqxg"
+       target="_blank"
+       rel="noopener noreferrer">
+
+        Télécharger les fichiers .hex pour la carte
+
     </a>
 
 
-    <!-- MESSAGE -->
-
     <div id="message" class="message">
-        En attente de connexion Bluetooth...
+        En attente de connexion USB...
     </div>
-
-
-    <!-- PIED DE PAGE -->
 
     <div class="pied">
         ACCESS CONTROL SYSTEM CODED BY MBAUR
@@ -657,12 +662,15 @@ body {
 <script>
 
 // =====================================
-// CONFIGURATION BLUETOOTH
+// CONFIGURATION
 // =====================================
+
+const VITESSE_USB = 115200;
 
 const SERVICE_UUID =
 "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
 
+// UUID conserve de ton programme Bluetooth initial
 const RX_UUID =
 "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
 
@@ -671,60 +679,65 @@ const RX_UUID =
 // VARIABLES
 // =====================================
 
-let device = null;
-let serveur = null;
-let caracteristiqueRX = null;
+let mode = "USB";
+
+let portUSB = null;
+
+let deviceBluetooth = null;
+let serveurBluetooth = null;
+let caracteristiqueBluetooth = null;
 
 let code = "";
-
-const LONGUEUR_MAX = 12;
+let verrouEnvoi = false;
 
 
 // =====================================
 // ELEMENTS HTML
 // =====================================
 
-const affichageCode =
-document.getElementById("affichageCode");
+const affichageCode = document.getElementById("affichageCode");
+const message = document.getElementById("message");
+const voyant = document.getElementById("voyant");
+const texteConnexion = document.getElementById("texteConnexion");
 
-const message =
-document.getElementById("message");
+const boutonConnecter = document.getElementById("connecter");
+const boutonDeconnecter = document.getElementById("deconnecter");
+const boutonEnvoyer = document.getElementById("envoyer");
+const boutonFermer = document.getElementById("fermerPorte");
 
-const voyant =
-document.getElementById("voyant");
+const boutonUSB = document.getElementById("modeUSB");
+const boutonBluetooth = document.getElementById("modeBluetooth");
 
-const texteConnexion =
-document.getElementById("texteConnexion");
-
-const boutonConnecter =
-document.getElementById("connecter");
-
-const boutonDeconnecter =
-document.getElementById("deconnecter");
-
-const boutonEnvoyer =
-document.getElementById("envoyer");
-
-const boutonFermer =
-document.getElementById("fermerPorte");
+const selecteur = document.getElementById("selecteurMode");
+const descriptionMode = document.getElementById("descriptionMode");
 
 
 // =====================================
-// AFFICHAGE DU CODE
+// AFFICHAGE
 // =====================================
+
+function afficherMessage(texte, type = "") {
+
+    message.textContent = texte;
+    message.className = "message";
+
+    if (type) {
+        message.classList.add(type);
+    }
+
+}
+
 
 function afficherCode() {
 
     if (code === "") {
 
         affichageCode.textContent = "ENTREZ LE CODE";
-
         affichageCode.classList.add("vide");
 
     } else {
 
         affichageCode.textContent = code;
-
         affichageCode.classList.remove("vide");
 
     }
@@ -733,27 +746,21 @@ function afficherCode() {
 
 
 // =====================================
-// AFFICHAGE DES MESSAGES
+// ETAT DE CONNEXION
 // =====================================
 
-function afficherMessage(texte, type = "") {
+function estConnecte() {
 
-    message.textContent = texte;
-
-    message.className = "message";
-
-    if (type) {
-
-        message.classList.add(type);
-
+    if (mode === "USB") {
+        return portUSB !== null;
     }
+
+    return caracteristiqueBluetooth !== null &&
+           deviceBluetooth !== null &&
+           deviceBluetooth.gatt.connected;
 
 }
 
-
-// =====================================
-// ETAT BLUETOOTH
-// =====================================
 
 function definirEtatConnecte(connecte) {
 
@@ -761,53 +768,82 @@ function definirEtatConnecte(connecte) {
 
         voyant.className = "voyant connecte";
 
-        texteConnexion.textContent = "Connecte a micro:bit";
+        texteConnexion.textContent =
+            mode === "USB" ? "Connectee en USB" : "Connectee en Bluetooth";
 
     } else {
 
         voyant.className = "voyant";
-
-        texteConnexion.textContent = "Non connecte";
+        texteConnexion.textContent = "Non connectee";
 
     }
 
     boutonConnecter.disabled = connecte;
-
     boutonDeconnecter.disabled = !connecte;
 
-    boutonEnvoyer.disabled = !connecte;
-
-    boutonFermer.disabled = !connecte;
+    boutonUSB.disabled = connecte;
+    boutonBluetooth.disabled = connecte;
 
     document.querySelectorAll("[data-chiffre]").forEach(b => {
-
         b.disabled = !connecte;
-
     });
 
     document.getElementById("effacer").disabled = !connecte;
-
     document.getElementById("retour").disabled = !connecte;
+
+    boutonEnvoyer.disabled = !connecte;
+    boutonFermer.disabled = !connecte;
 
 }
 
 
 // =====================================
-// AJOUTER UN CHIFFRE
+// CHANGEMENT DE MODE
+// =====================================
+
+function changerMode(nouveauMode) {
+
+    if (estConnecte()) return;
+
+    mode = nouveauMode;
+
+    const bluetooth = mode === "BLUETOOTH";
+
+    selecteur.classList.toggle("bluetooth", bluetooth);
+
+    boutonUSB.classList.toggle("actif", !bluetooth);
+    boutonBluetooth.classList.toggle("actif", bluetooth);
+
+    descriptionMode.textContent = bluetooth
+        ? "Connexion sans fil par Bluetooth"
+        : "Connexion filaire par câble USB";
+
+    afficherMessage(
+        bluetooth
+        ? "Mode Bluetooth selectionne"
+        : "Mode USB selectionne",
+        ""
+    );
+
+}
+
+
+boutonUSB.onclick = () => changerMode("USB");
+
+boutonBluetooth.onclick = () => changerMode("BLUETOOTH");
+
+
+// =====================================
+// CLAVIER NUMERIQUE
 // =====================================
 
 function ajouterChiffre(chiffre) {
 
-    if (!caracteristiqueRX) {
+    if (!estConnecte() || verrouEnvoi) return;
 
-        return;
-
-    }
-
-    if (code.length >= LONGUEUR_MAX) {
+    if (code.length >= 12) {
 
         afficherMessage("Longueur maximale atteinte", "erreur");
-
         return;
 
     }
@@ -816,63 +852,190 @@ function ajouterChiffre(chiffre) {
 
     afficherCode();
 
-    afficherMessage("Code en cours de saisie...", "");
+    afficherMessage("Code en cours de saisie");
 
 }
 
 
-// =====================================
-// EFFACER LE CODE
-// =====================================
-
 function effacerCode() {
 
     code = "";
-
     afficherCode();
-
     afficherMessage("Saisie effacee");
 
 }
 
 
-// =====================================
-// SUPPRIMER LE DERNIER CHIFFRE
-// =====================================
-
 function supprimerDernier() {
 
     code = code.slice(0, -1);
-
     afficherCode();
-
     afficherMessage("Dernier chiffre supprime");
 
 }
 
 
-// =====================================
-// EVENEMENTS DU CLAVIER
-// =====================================
-
 document.querySelectorAll("[data-chiffre]").forEach(bouton => {
 
     bouton.addEventListener("click", function() {
-
         ajouterChiffre(this.dataset.chiffre);
-
     });
 
 });
 
-
 document.getElementById("effacer").onclick = effacerCode;
-
 document.getElementById("retour").onclick = supprimerDernier;
 
 
 // =====================================
+// CONNEXION USB
+// =====================================
+
+async function connecterUSB() {
+
+    if (!("serial" in navigator)) {
+
+        throw new Error(
+            "Web Serial indisponible. Utilise Chrome ou Edge en HTTPS."
+        );
+
+    }
+
+    afficherMessage("Selection du port USB...", "attente");
+
+    portUSB = await navigator.serial.requestPort();
+
+    afficherMessage("Ouverture du port USB...", "attente");
+
+    await portUSB.open({
+        baudRate: VITESSE_USB
+    });
+
+    portUSB.addEventListener("disconnect", deconnexionUSB);
+
+    definirEtatConnecte(true);
+
+    afficherMessage("Connexion USB etablie", "succes");
+
+}
+
+
+async function deconnexionUSB() {
+
+    const ancienPort = portUSB;
+
+    portUSB = null;
+
+    definirEtatConnecte(false);
+
+    if (ancienPort) {
+
+        try {
+            await ancienPort.close();
+        } catch(erreur) {
+            console.error(erreur);
+        }
+
+    }
+
+    afficherMessage("Connexion USB interrompue", "erreur");
+
+}
+
+
+// =====================================
 // CONNEXION BLUETOOTH
+// =====================================
+
+async function connecterBluetooth() {
+
+    if (!navigator.bluetooth) {
+
+        throw new Error(
+            "Bluetooth indisponible. Utilise Chrome ou Edge."
+        );
+
+    }
+
+    afficherMessage("Recherche de la micro:bit...", "attente");
+
+    deviceBluetooth = await navigator.bluetooth.requestDevice({
+
+        acceptAllDevices: true,
+
+        optionalServices: [SERVICE_UUID]
+
+    });
+
+    deviceBluetooth.addEventListener(
+        "gattserverdisconnected",
+        deconnexionBluetooth
+    );
+
+    afficherMessage("Connexion Bluetooth...", "attente");
+
+    serveurBluetooth = await deviceBluetooth.gatt.connect();
+
+    const service = await serveurBluetooth.getPrimaryService(
+        SERVICE_UUID
+    );
+
+    const caracteristiques = await service.getCharacteristics();
+
+    caracteristiqueBluetooth = null;
+
+    for (const c of caracteristiques) {
+
+        console.log("Caracteristique :", c.uuid, c.properties);
+
+        if (
+            c.uuid.toLowerCase() === RX_UUID &&
+            (
+                c.properties.write ||
+                c.properties.writeWithoutResponse
+            )
+        ) {
+
+            caracteristiqueBluetooth = c;
+
+        }
+
+    }
+
+    if (!caracteristiqueBluetooth) {
+
+        throw new Error(
+            "Caracteristique UART Bluetooth introuvable ou non inscriptible."
+        );
+
+    }
+
+    definirEtatConnecte(true);
+
+    afficherMessage(
+        "Connexion Bluetooth etablie avec " +
+        (deviceBluetooth.name || "micro:bit"),
+        "succes"
+    );
+
+}
+
+
+function deconnexionBluetooth() {
+
+    caracteristiqueBluetooth = null;
+    serveurBluetooth = null;
+    deviceBluetooth = null;
+
+    definirEtatConnecte(false);
+
+    afficherMessage("Micro:bit Bluetooth deconnectee", "erreur");
+
+}
+
+
+// =====================================
+// BOUTON CONNECTER
 // =====================================
 
 boutonConnecter.onclick = async function() {
@@ -881,69 +1044,15 @@ boutonConnecter.onclick = async function() {
 
     try {
 
-        afficherMessage("Recherche de la micro:bit...", "attente");
+        if (mode === "USB") {
 
-        if (!navigator.bluetooth) {
+            await connecterUSB();
 
-            throw new Error("Bluetooth indisponible. Utilise Chrome ou Edge.");
+        } else {
 
-        }
-
-        device = await navigator.bluetooth.requestDevice({
-
-            acceptAllDevices: true,
-
-            optionalServices: [SERVICE_UUID]
-
-        });
-
-        device.addEventListener(
-            "gattserverdisconnected",
-            deconnexion
-        );
-
-        afficherMessage("Connexion en cours...", "attente");
-
-        serveur = await device.gatt.connect();
-
-        const service =
-            await serveur.getPrimaryService(SERVICE_UUID);
-
-        const caracteristiques =
-            await service.getCharacteristics();
-
-        caracteristiqueRX = null;
-
-        for (const c of caracteristiques) {
-
-            console.log("Caracteristique :", c.uuid, c.properties);
-
-            if (
-                c.uuid.toLowerCase() === RX_UUID &&
-                (
-                    c.properties.write ||
-                    c.properties.writeWithoutResponse
-                )
-            ) {
-
-                caracteristiqueRX = c;
-
-            }
+            await connecterBluetooth();
 
         }
-
-        if (!caracteristiqueRX) {
-
-            throw new Error("Caracteristique Bluetooth introuvable.");
-
-        }
-
-        definirEtatConnecte(true);
-
-        afficherMessage(
-            "Connexion etablie avec " + (device.name || "micro:bit"),
-            "succes"
-        );
 
     }
 
@@ -951,11 +1060,16 @@ boutonConnecter.onclick = async function() {
 
         console.error(erreur);
 
-        caracteristiqueRX = null;
+        caracteristiqueBluetooth = null;
+        serveurBluetooth = null;
+        portUSB = null;
 
         definirEtatConnecte(false);
 
-        afficherMessage("Erreur : " + erreur.message, "erreur");
+        afficherMessage(
+            "Erreur : " + erreur.message,
+            "erreur"
+        );
 
     }
 
@@ -966,28 +1080,54 @@ boutonConnecter.onclick = async function() {
 // DECONNEXION
 // =====================================
 
-boutonDeconnecter.onclick = function() {
+boutonDeconnecter.onclick = async function() {
 
-    if (device && device.gatt.connected) {
+    if (mode === "USB") {
 
-        device.gatt.disconnect();
+        await deconnexionUSB();
 
     } else {
 
-        deconnexion();
+        if (deviceBluetooth && deviceBluetooth.gatt.connected) {
+
+            deviceBluetooth.gatt.disconnect();
+
+        } else {
+
+            deconnexionBluetooth();
+
+        }
 
     }
 
 };
 
 
-function deconnexion() {
+// =====================================
+// ENVOI USB
+// =====================================
 
-    caracteristiqueRX = null;
+async function envoyerUSB(valeur) {
 
-    definirEtatConnecte(false);
+    if (!portUSB || !portUSB.writable) {
 
-    afficherMessage("Micro:bit deconnectee", "erreur");
+        throw new Error("Port USB non disponible");
+
+    }
+
+    const donnees = new TextEncoder().encode(valeur + "\n");
+
+    const writer = portUSB.writable.getWriter();
+
+    try {
+
+        await writer.write(donnees);
+
+    } finally {
+
+        writer.releaseLock();
+
+    }
 
 }
 
@@ -996,34 +1136,67 @@ function deconnexion() {
 // ENVOI BLUETOOTH
 // =====================================
 
-async function envoyerCode(valeur) {
+async function envoyerBluetooth(valeur) {
 
-    if (!caracteristiqueRX) {
+    if (!caracteristiqueBluetooth) {
 
-        afficherMessage("Carte non connectee", "erreur");
-
-        return;
+        throw new Error("Bluetooth non connecte");
 
     }
 
+    const donnees = new TextEncoder().encode(valeur + "\n");
+
+    if (caracteristiqueBluetooth.properties.writeWithoutResponse) {
+
+        await caracteristiqueBluetooth.writeValueWithoutResponse(donnees);
+
+    } else {
+
+        await caracteristiqueBluetooth.writeValueWithResponse(donnees);
+
+    }
+
+}
+
+
+// =====================================
+// FONCTION GENERALE D'ENVOI
+// =====================================
+
+async function envoyerCode(valeur) {
+
+    if (!estConnecte()) {
+
+        afficherMessage("Carte non connectee", "erreur");
+        return false;
+
+    }
+
+    if (verrouEnvoi) return false;
+
+    verrouEnvoi = true;
+
+    boutonEnvoyer.disabled = true;
+    boutonFermer.disabled = true;
+
     try {
 
-        const messageBluetooth = valeur + "\n";
+        if (mode === "USB") {
 
-        const donnees =
-            new TextEncoder().encode(messageBluetooth);
-
-        if (caracteristiqueRX.properties.writeWithoutResponse) {
-
-            await caracteristiqueRX.writeValueWithoutResponse(donnees);
+            await envoyerUSB(valeur);
 
         } else {
 
-            await caracteristiqueRX.writeValueWithResponse(donnees);
+            await envoyerBluetooth(valeur);
 
         }
 
-        afficherMessage("Code envoye : " + valeur, "succes");
+        afficherMessage(
+            "Code envoye : " + valeur + " (" + mode + ")",
+            "succes"
+        );
+
+        return true;
 
     }
 
@@ -1031,7 +1204,23 @@ async function envoyerCode(valeur) {
 
         console.error(erreur);
 
-        afficherMessage("Erreur d'envoi : " + erreur.message, "erreur");
+        afficherMessage(
+            "Erreur d'envoi : " + erreur.message,
+            "erreur"
+        );
+
+        return false;
+
+    }
+
+    finally {
+
+        verrouEnvoi = false;
+
+        const connecte = estConnecte();
+
+        boutonEnvoyer.disabled = !connecte;
+        boutonFermer.disabled = !connecte;
 
     }
 
@@ -1047,19 +1236,17 @@ boutonEnvoyer.onclick = async function() {
     if (code === "") {
 
         afficherMessage("Saisis d'abord un code", "erreur");
-
         return;
 
     }
 
     const codeEnvoye = code;
 
-    await envoyerCode(codeEnvoye);
+    const succes = await envoyerCode(codeEnvoye);
 
-    if (caracteristiqueRX) {
+    if (succes) {
 
         code = "";
-
         afficherCode();
 
     }
@@ -1082,14 +1269,18 @@ boutonFermer.onclick = async function() {
 // VERIFICATION DU NAVIGATEUR
 // =====================================
 
-if (!navigator.bluetooth) {
+if (!("serial" in navigator)) {
 
     afficherMessage(
-        "Bluetooth indisponible. Utilise Chrome ou Edge.",
-        "erreur"
+        "USB indisponible : utilise Chrome ou Edge en HTTPS.",
+        "attente"
     );
 
-    boutonConnecter.disabled = true;
+}
+
+if (!navigator.bluetooth) {
+
+    console.warn("Web Bluetooth indisponible");
 
 }
 
